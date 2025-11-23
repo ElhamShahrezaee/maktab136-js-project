@@ -39,7 +39,7 @@ export function initOnboarding(routerGoHome) {
     element: "div",
     restAttrs: { class: "swiper-wrapper" },
   });
-
+  // -------------------------------------------------------------
   // Slide 1
   const slide1 = El({
     element: "div",
@@ -59,7 +59,7 @@ export function initOnboarding(routerGoHome) {
       El({
         element: "img",
         restAttrs: {
-          src: "/assets/icons/onboarding1.png",
+          src: "/assets/images/onboarding1.png",
           alt: "App Icon",
           style: "width:100%;height:100%;object-fit:contain;display:block;",
         },
@@ -100,39 +100,113 @@ export function initOnboarding(routerGoHome) {
     window._onboardingRingRAF = requestAnimationFrame(step);
   })();
 
-  // -------------------- append slide into your swiper wrapper as usual --------------------
-  // wrapper.append(slide1); // <- make sure you actually append the slide to wrapper
-
   // -------------------------------------------------------------
-  // Slide 2 — Background image full + bottom text
-  // -------------------------------------------------------------
+  // Slide 2 
   const slide2 = El({
     element: "div",
     restAttrs: {
-      class:
-        "swiper-slide w-full h-full bg-cover bg-center flex items-end justify-center text-center text-white p-6",
-      style: `background-image:url('https://picsum.photos/428/926?random=1')`,
+      class: "swiper-slide w-full h-full relative bg-cover bg-center",
+      style: `
+      background-image:
+        linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%),
+        url('/assets/images/onboarding2.png');
+      background-size: cover;
+      background-position: center;
+    `,
     },
   });
 
-  slide2.append(
-    El({
-      element: "div",
-      restAttrs: {},
-      children: [
-        El({
-          element: "div",
-          restAttrs: { class: "text-xl font-bold drop-shadow-lg" },
-          children: ["Welcome to My App"],
-        }),
-        El({
-          element: "div",
-          restAttrs: { class: "text-sm opacity-90 drop-shadow-lg" },
-          children: ["Let’s set things up quickly"],
-        }),
-      ],
-    })
-  );
+  const textWelcome = El({
+    element: "div",
+    innerText: "Welcome to",
+    restAttrs: {
+      class: "absolute text-white",
+      style: `
+      width:229px;
+      height:48px;
+      top:629px;
+      left:32px;
+      opacity:1;
+
+      font-family: Inter;
+      font-weight:600;
+      font-size:40px;
+      line-height:100%;
+      letter-spacing:0%;
+    `,
+    },
+  });
+
+  const handIcon = El({
+    element: "img",
+    restAttrs: {
+      src: "/assets/icons/onboarding_hand.png", 
+      alt: "hand icon",
+      class: "absolute",
+      style: `
+      width:36px;
+      height:36px;
+      top:635px;
+      left:277px;
+      opacity:1;
+    `,
+    },
+  });
+
+  const textShoea = El({
+    element: "div",
+    innerText: "Shoea",
+
+    restAttrs: {
+      class: "absolute text-white",
+      style: `
+      width:222px;
+      height:87px;
+      top:693px;
+      left:32px;
+      opacity:1;
+
+      font-family: Inter;
+      font-weight:700;
+      font-size:72px;
+      line-height:100%;
+      letter-spacing:0%;
+    `,
+    },
+  });
+
+
+  const textDescription = El({
+    element: "div",
+          innerText:"The best sneakers & shoes e-commerse app of the century for your fashion needs!",
+    restAttrs: {
+      class: "absolute text-white",
+      style: `
+      width:364px;
+      height:44px;
+      top:808px;
+      left:31px;
+      opacity:1;
+
+      font-family: Inter;
+      font-weight:600;
+      font-size:16px;
+      line-height:22px;
+      letter-spacing:0%;
+    `,
+    },
+    children: [
+      ,
+    ],
+  });
+
+  // ─────────────────────────────────────────────
+  // APPEND ALL
+  // ─────────────────────────────────────────────
+  slide2.append(textWelcome);
+  slide2.append(handIcon);
+  slide2.append(textShoea);
+  slide2.append(textDescription);
 
   // -------------------------------------------------------------
   // Helper for slides 3–5
