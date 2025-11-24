@@ -98,9 +98,7 @@ export function CreateSlide2() {
       children: [,],
     });
 
-    // ─────────────────────────────────────────────
-    // APPEND ALL
-    // ─────────────────────────────────────────────
+
     slide2.append(textWelcome);
     slide2.append(handIcon);
     slide2.append(textShoea);

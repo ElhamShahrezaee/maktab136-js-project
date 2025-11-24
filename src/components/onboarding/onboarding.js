@@ -6,8 +6,7 @@ import {
   setItemLocalStorage,
 } from "../../utils/localstorage.js";
 import { router } from "../../utils/router";
-
-import IsOnboardingShown from "../../constants/params.js";
+import { IsOnboardingShown } from "../../constants/params.js";
 import { CreateSlide1 } from "./slide1.js";
 import { CreateSlide2 } from "./slide2.js";
 import { CreateSlide35 } from "./slides3_5.js";
@@ -48,9 +47,9 @@ export function initOnboarding() {
   wrapper.append(
     slide1,
     slide2,
-    features.feat1.slide,
-    features.feat2.slide,
-    features.feat3.slide
+    features.feat3.slide,
+    features.feat4.slide,
+    features.feat5.slide
   );
   swiperEl.append(wrapper);
   root.append(swiperEl);
@@ -64,6 +63,9 @@ export function initOnboarding() {
     allowTouchMove: true,
     speed: 400,
   });
+
+  features.feat3.button.addEventListener("click", () => swiper.slideNext());
+  features.feat4.button.addEventListener("click", () => swiper.slideNext());
 
   // Auto advance for slides 0 & 1
   function autoAdvance(index) {
@@ -79,14 +81,4 @@ export function initOnboarding() {
   });
 
   autoAdvance(0);
-
-  features.feat1.button.addEventListener("click", () => swiper.slideNext());
-  features.feat2.button.addEventListener("click", () => swiper.slideNext());
-  features.feat3.button.addEventListener("click", () => finish());
-
-  function finish() {
-    setItemLocalStorage(IsOnboardingShown, true);
-    overlay.remove();
-    router.navigate("/home");
-  }
 }

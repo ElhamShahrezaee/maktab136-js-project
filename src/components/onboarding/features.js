@@ -9,7 +9,6 @@ export function featureSlide(img, title, step) {
     },
   });
 
-  // IMAGE WRAPPER
   const imageWrapper = El({
     element: "div",
     restAttrs: {
