@@ -11,7 +11,7 @@ import { CreateSlide1 } from "./slide1.js";
 import { CreateSlide2 } from "./slide2.js";
 import { CreateSlide35 } from "./slides3_5.js";
 
-export function initOnboarding() {
+export function OnboardingComponent() {
   if (getItemLocalStorage(IsOnboardingShown)) router.navigate("/home");
 
   const overlay = El({
