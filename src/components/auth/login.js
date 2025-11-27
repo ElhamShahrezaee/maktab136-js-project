@@ -1,7 +1,7 @@
 import { createAuthPage } from "./authCreator.js";
 import { loginAPI } from "../../utils/API.js";
 
-export function LoginPage() {
+export function LoginComponent() {
   const page = createAuthPage({
     titleText: "Login to Your Account",
     buttonText: "SignIn",
