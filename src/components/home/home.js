@@ -4,7 +4,6 @@ import { HomeHeader } from "./header.js";
 import { FooterComponent } from "../shared/footer.js";
 import { HomeProducts } from "./products.js";
 import { HomeSearch } from "./search.js";
-import { getBrands } from "../../utils/API.js";
 export function HomeComponent() {
   checkToken();
   const page = El({
